@@ -1,0 +1,106 @@
+\section{Metodologia}
+A presente pesquisa adota uma abordagem experimental e comparativa com o objetivo de avaliar o desempenho de diferentes grandes modelos de linguagem aplicados ao suporte ao desenvolvimento de \textit{software}. Para a realização dessa análise, foram definidos três critérios principais de avaliação, escolhidos por representarem etapas fundamentais do processo de programação: geração de código, depuração e análise de erros e compreensão de código. Cada critério será testado por diversos \textit{prompts}, com perguntas e códigos de diferentes áreas da programação, no intuito de levar ao limite o conhecimento das \textit{LLMs} e o quanto elas podem auxiliar no desenvolvimento de \textit{software}. Desse modo, todos os \textit{prompts} e suas respectivas respostas podem ser encontradas publicamente no repositório do \textit{GitHub} do nosso trabalho \cite{githubTCC}.
+
+Para o critério de geração de código, avaliamos a capacidade dos modelos em gerar trechos de código coerentes, funcionais e otimizados a partir de instruções textuais fornecidas em linguagem natural. A geração automática de código constitui uma das aplicações mais promissoras, pois possibilita acelerar o processo de desenvolvimento, reduzir erros humanos e aumentar a produtividade dos programadores \cite{codeGeneration}. Assim, analisar o desempenho dos modelos nesse aspecto é fundamental para determinar sua eficiência na criação de soluções completas e tecnicamente corretas.
+
+Já o critério de depuração e análise de erros busca examinar a habilidade dos modelos em identificar, interpretar e corrigir erros em códigos existentes. A capacidade de realizar a depuração é um indicador importante da compreensão lógica do código por parte do modelo, além de refletir sua utilidade em tarefas de manutenção de \textit{software}. Avaliar esse aspecto permite compreender se os \textit{LLMs} conseguem atuar de maneira eficaz não apenas na criação, mas também na melhoria e correção de sistemas já desenvolvidos.
+
+Por fim, o critério de compreensão de código explora a aptidão na interpretação, explicação e síntese dos trechos de código. Essa análise permite verificar o nível de entendimento semântico que os modelos possuem sobre diferentes linguagens de programação e estruturas lógicas, aspecto essencial para sua utilização em atividades de aprendizado, revisão, documentação técnica e manutenção de sistemas.
+
+A seleção desses critérios justifica-se pela necessidade de compreender como os modelos analisados se comportam diante das principais demandas enfrentadas por desenvolvedores em ambientes reais de trabalho. Dessa forma, busca-se avaliar não apenas a capacidade dos modelos em produzir soluções funcionais, mas também sua competência em identificar falhas e interpretar trechos de código já existentes, aspectos essenciais para o uso efetivo dessas ferramentas no contexto da engenharia de \textit{software}.
+
+Para a análise do desempenho, serão consideradas métricas de avaliação quantitativas e qualitativas, de modo a contemplar tanto o desempenho mensurável quanto a qualidade das respostas geradas. A análise quantitativa abrange medidas objetivas, como tempo de resposta e custo em \textit{tokens}, permitindo comparar os modelos de forma numérica e verificável. Já a análise qualitativa envolve critérios subjetivos, como clareza, precisão e completude das respostas, avaliando aspectos que impactam diretamente a utilidade prática para o desenvolvedor, mas que não podem ser medidos apenas por valores numéricos.
+
+Para as métricas quantitativas, temos o tempo de resposta, que representa a rapidez com que o modelo é capaz de processar um comando e gerar uma saída completa. Esse indicador é fundamental para avaliar a eficiência operacional, visto que tempos de resposta menores tendem a refletir maior agilidade na execução de tarefas e melhor adequação ao uso em ambientes de desenvolvimento interativo, além de verificar a coerência da resposta com base nessa velocidade. O tempo será medido a partir do intervalo entre o envio do \textit{prompt} e o recebimento integral da resposta, sendo posteriormente calculada a média aritmética dos tempos obtidos em cada critério de avaliação. Além disso, temos o custo em \textit{tokens}, que mensura a eficiência do uso de recursos computacionais empregados na geração das respostas. Esse parâmetro também permitirá realizar o cálculo em Reais (BRL) da requisição, em cada execução, considerando os valores médios encontrados na data da pesquisa (novembro de 2025) de US\$ 0,60 por milhão de \textit{tokens} para o \textit{GPT-4.1-mini} e US\$ 2,50 por milhão de \textit{tokens} para o \textit{Gemini 2.5 Flash}. Aplicando a cotação média de R\$ 5,33 por dólar.
+
+A avaliação qualitativa é realizada por meio de cinco critérios, sendo eles: clareza, legibilidade, precisão, eficácia e completude, cada um buscando avaliar diferentes áreas das respostas geradas. Para a classificação, cada uma das métricas recebeu uma escala de 1 a 5, na qual o valor 1 representa desempenho insatisfatório e o valor 5 indica excelência. As notas atribuídas foram definidas coletivamente por todos os participantes envolvidos na produção deste trabalho, garantindo que a avaliação refletisse um consenso e reduzisse vieses individuais. 
+
+O processo avaliativo foi conduzido sob a perspectiva de estudantes de desenvolvimento de \textit{software} em aprendizado, público ao qual este estudo se direciona. Dessa forma, as notas expressam o que esse perfil considera uma resposta clara, útil e tecnicamente adequada. É importante destacar que, embora o método busque objetividade, os resultados podem apresentar variações caso avaliadores com níveis de experiência distintos, como desenvolvedores seniores, realizem a mesma classificação, uma vez que profissionais mais experientes podem demandar explicações mais profundas ou rigor técnico adicional. Ainda assim, entende-se que as avaliações apresentadas representam de maneira fiel o ponto de vista do público-alvo deste estudo.
+
+É relevante ressaltar que, no contexto profissional, a avaliação qualitativa das respostas geradas por modelos de IA é realizada por especialistas conhecidos como \textit{data annotators} ou \textit{AI data trainers}. Esses profissionais desempenham papel fundamental em processos de alinhamento humano, como o RLHF (\textit{Reinforcement Learning from Human Feedback}), no qual julgamentos humanos são utilizados para treinar e ajustar modelos de linguagem a partir de preferências explícitas e critérios bem estabelecidos\cite{RLHF}.
+Embora o presente estudo não utilize anotadores profissionais, a metodologia aplicada se inspira nesses princípios: múltiplos avaliadores, critérios definidos e julgamento humano estruturado. Portanto, a abordagem adotada neste trabalho busca reproduzir, em escala acadêmica, aspectos essenciais do processo de avaliação qualitativa amplamente utilizado no desenvolvimento de LLMs.
+
+Dessa forma, a escala permite avaliar o desempenho dos modelos de forma graduada, refletindo diferentes níveis de qualidade observados em cada resposta. Em conjunto, essas métricas qualitativas permitem uma análise mais aprofundada do desempenho cognitivo e comunicativo dos modelos, complementando as métricas quantitativas e oferecendo uma visão sobre a capacidade dos LLMs em apoiar efetivamente o processo de desenvolvimento de \textit{software}. Assim, pode-se estabelecer as métricas:
+
+A clareza mensura a facilidade de compreensão e a coerência textual das explicações apresentadas pelos modelos. Avalia-se, nesse aspecto, se o conteúdo é inteligível, livre de ambiguidades e redigido com fluidez e precisão terminológica, pode-se analisar sua escala de avaliação com base na Tabela \ref{tab:criterios_clareza}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{1.5cm}|m{6cm}|}
+\hline
+\textbf{Nota} & \textbf{Descrição} \\ \hline
+\centering\textbf{1} & Explicação confusa, incompleta ou contraditória. \\ \hline
+\centering\textbf{2} & Parcialmente compreensível, com trechos confusos ou mal explicados. \\ \hline
+\centering\textbf{3} & Compreensível, mas com partes redundantes ou pouco objetivas. \\ \hline
+\centering\textbf{4} & Explicação clara, objetiva e de fácil acompanhamento, sem redundâncias. \\ \hline
+\centering\textbf{5} & Explicação extremamente clara e fluida, com riqueza de detalhes e exemplos sem perder a objetividade. \\ \hline
+\end{tabular}
+\caption{Escala de pontuação referente a Clareza}
+\label{tab:criterios_clareza}
+\end{table}
+
+A legibilidade diz respeito à organização visual, formatação e uso técnico adequado da linguagem. Esse critério busca verificar se o código ou o texto produzido segue boas práticas de estruturação, nomenclatura e apresentação, garantindo uma leitura fluida e padronizada, pode-se analisar sua escala de avaliação com base na Tabela \ref{tab:criterios_legibilidade}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{1.5cm}|m{6cm}|}
+\hline
+\textbf{Nota} & \textbf{Descrição} \\ \hline
+\centering\textbf{1} & Texto desorganizado, mal formatado ou com erros graves que dificultam a leitura. \\ \hline
+\centering\textbf{2} & Estrutura básica, mas com falhas de organização, espaçamento ou formatação. \\ \hline
+\centering\textbf{3} & Estrutura adequada e leitura fluida, mas com formatação simples e pouco refinada. \\ \hline
+\centering\textbf{4} & Texto bem formatado, com boa hierarquia visual e tecnicamente consistente. \\ \hline
+\centering\textbf{5} & Altamente legível, com formatação exemplar, excelente organização e consistência técnica impecável. \\ \hline
+\end{tabular}
+\caption{Escala de pontuação referente a Legibilidade}
+\label{tab:criterios_legibilidade}
+\end{table}
+
+A precisão avalia a correção técnica das respostas em relação ao enunciado proposto, considerando se o conteúdo apresentado é conceitualmente exato, livre de erros de lógica ou sintaxe e se responde adequadamente ao que foi solicitado, com base na Tabela \ref{tab:criterios_precisao}. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{1.5cm}|m{6cm}|}
+\hline
+\textbf{Nota} & \textbf{Descrição} \\ \hline
+\centering\textbf{1} & Resposta incorreta, com erros técnicos ou conceituais graves. \\ \hline
+\centering\textbf{2} & Parcialmente correta, contém erros técnicos ou não atende plenamente ao que foi solicitado. \\ \hline
+\centering\textbf{3} & Maior parte correta, com pequenas imprecisões. \\ \hline
+\centering\textbf{4} & Tecnicamente correta, bem fundamentada e com boa aderência ao enunciado, mas com falta de detalhes. \\ \hline
+\centering\textbf{5} & Totalmente precisa, demonstrando domínio técnico e contextual. \\ \hline
+\end{tabular}
+\caption{Escala de pontuação referente a Precisão}
+\label{tab:criterios_precisao}
+\end{table}
+
+A eficácia mede a capacidade prática da resposta em resolver o problema proposto, analisando o grau em que a solução é funcional, aplicável e relevante dentro do contexto do desenvolvimento de \textit{software}. Este critério observa não apenas a execução correta, mas também a adequação da solução às boas práticas e ao cenário apresentado, com base na Tabela \ref{tab:avaliacao_eficacia}.
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{1.5cm}|m{6cm}|}
+\hline
+\textbf{Nota} & \textbf{Descrição} \\ \hline
+\centering\textbf{1} & Não resolve o problema ou apresenta solução irrelevante/inaplicável. \\ \hline
+\centering\textbf{2} & Resolve parcialmente, mas de forma incompleta ou genérica. \\ \hline
+\centering\textbf{3} & Resolve o problema de forma básica e funcional, mas sem otimização ou adequação contextual. \\ \hline
+\centering\textbf{4} & Resolve bem, com explicações ou soluções aplicáveis ao contexto. \\ \hline
+\centering\textbf{5} & Resolve completamente, de forma funcional, contextualizada e otimizada. \\ \hline
+\end{tabular}
+\caption{Escala de pontuação referente a Eficácia}
+\label{tab:avaliacao_eficacia}
+\end{table}
+
+Por fim, a completude avalia se o modelo fornece uma resposta integral e contextualizada, abrangendo todos os aspectos solicitados pelo \textit{prompt}, incluindo exemplos, explicações e variações de uso. Este critério busca identificar se o modelo apresenta uma resposta suficientemente abrangente, sem omitir informações relevantes para a compreensão e aplicação prática da solução, com base na Tabela \ref{tab:avaliacao_completude}.
+\begin{table}
+\centering
+\begin{tabular}{|m{1.5cm}|m{6cm}|}
+\hline
+\textbf{Nota} & \textbf{Descrição} \\ \hline
+\centering\textbf{1} & Incompleta, ignorando a maior parte do que foi solicitado. \\ \hline
+\centering\textbf{2} & Parcialmente completa; aborda apenas alguns pontos principais e omite partes importantes do pedido. \\ \hline
+\centering\textbf{3} & Cobre o essencial do que foi solicitado, mas ainda deixa de lado detalhes relevantes ou exemplos que auxiliariam na compreensão. \\ \hline
+\centering\textbf{4} & Completa em relação ao pedido, atendendo a todos os requisitos com boa explicação, mas sem explorar cenários alternativos. \\ \hline
+\centering\textbf{5} & Totalmente completa; contempla todos os pontos solicitados com profundidade, incluindo variações de uso, casos alternativos e exemplos que enriquecem a compreensão. \\ \hline
+\end{tabular}
+\caption{Escala de pontuação referente a Completude}
+\label{tab:avaliacao_completude}
+\end{table}

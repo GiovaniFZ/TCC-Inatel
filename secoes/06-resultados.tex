@@ -1,0 +1,199 @@
+\section{Discussão e Resultados}
+Esta seção apresenta e analisa os resultados obtidos a partir da aplicação dos procedimentos descritos na metodologia. As avaliações foram conduzidas de acordo com os três critérios previamente definidos: geração de código, depuração e análise de erros e compreensão de código, utilizando as métricas qualitativas e quantitativas estabelecidas.
+Para fins de concisão e clareza na exposição, são apresentados neste artigo apenas os \textit{prompts} e resultados de maior relevância, ou seja, aqueles que melhor ilustram o comportamento e as diferenças de desempenho observadas entre os modelos analisados. Novamente ressalta-se que a versão completa do conjunto de testes, incluindo todos os \textit{prompts} e respostas, encontra-se disponível no repositório oficial do projeto, hospedado no GitHub \cite{githubTCC}, para fins de transparência e reprodutibilidade da pesquisa.
+
+\subsection{Geração de Código}
+No critério de geração de código, observou-se que ambos os modelos apresentaram desempenhos satisfatórios, ainda que com abordagens distintas quanto ao nível de detalhamento, clareza e eficiência das respostas. O GPT destacou-se pela simplicidade e objetividade na apresentação das soluções, oferecendo explicações diretas, bem estruturadas e de fácil leitura. Seu código apresentou boa organização e nomenclatura adequada de variáveis, o que favoreceu a legibilidade. No entanto, em alguns casos, demonstrou ausência de elementos técnicos complementares, como blocos de tratamento de exceção, o que limitou sua eficácia e completude em determinados contextos.
+
+Por outro lado, o Gemini adotou uma abordagem mais robusta e descritiva, frequentemente adicionando funcionalidades complementares e detalhes técnicos relevantes às soluções propostas. Essa característica contribuiu para uma maior precisão e completude, especialmente em problemas que exigiam maior profundidade técnica. Contudo, em alguns cenários, o excesso de comentários e exemplos inseridos no próprio código compromete a clareza e a legibilidade das respostas, tornando-as mais densas e, por vezes, redundantes.
+
+A diferença entre os estilos de geração de código torna-se ainda mais evidente quando observados os resultados de \textit{prompts} específicos. No \textit{Prompt} 3: \textit{“Mostre como configurar a conexão com um banco de dados usando Sequelize em JavaScript”}, o \textit{GPT} demonstrou desempenho superior, obtendo notas 5, 5, 4, 4 e 4 nos critérios de clareza, legibilidade, precisão, eficácia e completude, respectivamente. Sua resposta foi direta, bem estruturada e tecnicamente correta, refletindo a eficiência do modelo em tarefas de escopo mais objetivo e linear. O Gemini, por outro lado, apresentou uma resposta excessivamente detalhada e confusa, com notas 2, 2, 5, 4 e 5, o que reforça sua tendência à complexidade desnecessária em contextos simples.
+
+Entretanto, nos \textit{Prompts} 5 e 6, que envolviam tarefas substancialmente mais complexas, respectivamente: \textit{ “Crie um middleware de autenticação JWT completo em Node.js (gerar token, verificar e renovar)”} e \textit{“Crie uma API REST em Node.js com Express que permita cadastrar, listar e deletar produtos, utilizando Sequelize e MySQL”}, o cenário se inverteu de forma marcante. O Gemini obteve nota máxima (5) em todos os critérios nos dois casos, demonstrando profunda compreensão do problema, implementação completa e atenção a detalhes técnicos, como verificação de erros, boas práticas de segurança e estrutura modular. Já o GPT apresentou desempenho significativamente inferior (nenhum critério passsou acima da nota 3), produzindo respostas incompletas, com falhas técnicas e ausência de mecanismos essenciais para o funcionamento robusto do código.
+
+De modo geral, a análise evidencia que o GPT tende a priorizar a objetividade, entregando respostas rápidas e práticas, ainda que menos elaboradas, enquanto o Gemini se sobressai pela riqueza de detalhes e pela amplitude das soluções, embora, em certos casos com perda de fluidez na leitura. Afim de realizar essa comprovação pode-se, também, avaliar a Tabela \ref{tab:avaliacao_modelos_CG} que ilustra as médias dos resultados obtidos pelas métricas de avaliação, onde o Gemini obteve um resultado em legibilidade (3,33) muito inferior as outras categorias, enquanto o GPT manteve um equilíbrio médio entre 3 e 3,5 em todas elas.
+
+\begin{table}[H]
+\centering
+\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Clareza} & \textbf{Legibilidade} & \textbf{Precisão} & \textbf{Eficácia} & \textbf{Completude} & \textbf{Média} \\
+\hline
+GPT & 3,33 & 3,17 & 3,33 & 3,00 & 3,50 & \textbf{3,27} \\ \hline
+Gemini & 4,00 & 3,33 & 4,67 & 4,50 & 4,83 & \textbf{4,27} \\ \hline
+\end{tabular}
+}
+\caption{Avaliação qualitativa dos modelos relacionadas a geração de código}
+\label{tab:avaliacao_modelos_CG}
+\end{table}
+
+No que diz respeito às métricas quantitativas, observou-se uma diferença significativa entre os modelos analisados, tanto em tempo de resposta quanto em custo operacional. O GPT-4.1-mini apresentou tempos de resposta substancialmente inferiores, variando entre 4,78 e 16,55 segundos, enquanto o Gemini 2.5 Flash oscilou entre 12,97 e 29,91 segundos. Esse comportamento reforça a natureza mais leve e otimizada do GPT, em contraste com a abordagem mais detalhada e extensa do Gemini, que resulta em maior tempo de inferência.
+
+No aspecto financeiro, o custo foi estimado com base no número de \textit{tokens} pode ser visualizado na Tabela \ref{tab:avaliacao_custo_CG}, visto os parâmetros estabelecidos na seção da Metodologia.
+\begin{table}[H]
+\centering
+\resizebox{0.4\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Tempo [s]} & \textbf{Tokens} & \textbf{Custo} \\ \hline
+GPT-4.1-mini & 10,55 & 708,50 & R\$ 0,00225 \\ \hline
+Gemini-2.5 Flash & 24,40 & 4993,83 & R\$ 0,06617  \\ \hline
+\end{tabular}
+}
+\caption{Medidas quantitativas relacionadas a geração de código}
+\label{tab:avaliacao_custo_CG}
+\end{table}
+
+Nesse contexto, o GPT-4.1-mini demonstrou-se mais eficiente e econômico, sendo ideal para tarefas curtas e respostas objetivas. Já o Gemini 2.5 Flash se mostrou mais robusto e contextualizado, adequado para demandas que exigem maior detalhamento, ainda que isso implique maior custo operacional e tempo de processamento.
+
+\subsection{Depuração e Análise de Erros}
+Para a depuração e análise de erros, foram observadas diferenças significativas no comportamento dos modelos. O GPT apresentou uma abordagem mais direta e objetiva, fornecendo soluções funcionais e sinteticamente bem delimitadas. Essa característica favoreceu sua eficácia prática, sobretudo em casos de erros simples ou localizados. Contudo, observou-se que, em situações que exigiam múltiplas soluções ou maior contextualização, o GPT tendia a responder de forma incompleta ou superficial, comprometendo sua completude. Isso pode ser visto no caso do \textit{prompt} 4, ilustrado no código \ref{lst:prompt4AE}, em que se esperava uma ampla depuração a fim de detectar o erro, porém foi coberto apenas o mínimo essencial na resposta.
+\begin{lstlisting}[caption=\footnotesize{\textit{Prompt} 4 referente a depuração e análise de erros}, label={lst:prompt4AE}, language=JavaScript]
+/*
+    Prompt: 
+Estou recebendo “UnhandledPromiseRejectionWarning” no Node.js ao usar axios. Como corrigir?
+*/
+
+const axios = require("axios");
+
+async function fetchData() {
+  const res = await axios.get("https://api.com/dados");
+  console.log(res.data);
+}
+
+fetchData();
+\end{lstlisting}
+
+Por outro lado, o Gemini  demonstrou profundidade técnica e detalhamento elevado em suas explicações, muitas vezes explorando diferentes possibilidades de correção e cenários alternativos, destacando-se principalmente em sua completude. Embora essa riqueza de detalhes tenha agregado valor seguindo o mesmo caso do \textit{prompt} 4 anterior, apresentado no código \ref{lst:prompt4AE}, possuindo nota 5 em precisão e eficácia, cobrindo diversos casos de depuração em sua respota, nota-se um deslize referente a legibilidade possuindo nota 2 devido a redundâncias, perda de objetividade e falhas na hierarquia visual. Além disso, em casos muito simples, o Gemini começa a buscar uma 'otimização' não requisitada, adicionando código fora da correção, isso fica evidente ao analisarmos a resposta do \textit{prompt} 1, ilustrando no código \ref{lst:prompt1AE}, em que se esperava apenas uma correção básica na iteração de um \textit{loop for} e sua resposta forneceu diversos casos a mais prejudicando a clareza, eficácia e aumentando seu custo.
+
+\begin{lstlisting}[caption=\footnotesize{\textit{Prompt} 1 referente a depuração e análise de erros}, label={lst:prompt1AE}, language=Python]
+    # Prompt:
+# Meu codigo em Python retorna “TypeError: 'int' object is not iterable”. O que pode estar errado?
+
+total = 0
+for num in 10:
+    total += num
+print(total)
+\end{lstlisting}
+
+Dessa forma, resultados obtidos pela media das métricas, expostos na Tabela \ref{tab:avaliacao_modelos_AE}, reforçam as diferenças de abordagem entre os dois modelos avaliados. O \textbf{Gemini} apresentou o melhor desempenho médio geral (4,1), destacando-se especialmente nas dimensões de Precisão (4,17) e Completude (4,83). Esse desempenho está diretamente relacionado à sua capacidade de oferecer respostas tecnicamente robustas, explorando múltiplas causas e soluções potenciais para um mesmo problema. Essa característica o torna particularmente eficaz em cenários de depuração aprofundada, em que é necessário compreender o erro de forma sistêmica e propor correções abrangentes.
+Já o GPT, embora tenha obtido uma média geral ligeiramente inferior (3,9), demonstrou consistência e objetividade em suas respostas. Seu ponto forte foi a clareza e eficácia na resolução imediata de erros simples, evidenciando um bom equilíbrio entre explicação e execução. Essa concisão é valiosa em contextos de depuração rápida, nos quais o desenvolvedor busca uma resposta direta e funcional sem detalhamento excessivo.
+\begin{table}[H]
+\centering
+\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Clareza} & \textbf{Legibilidade} & \textbf{Precisão} & \textbf{Eficácia} & \textbf{Completude} & \textbf{Média} \\
+\hline
+GPT & 3,.67 & 3,50 & 4,17 & 4,17 & 4,00 & \textbf{3,90} \\ \hline
+Gemini & 4,17 & 3,33 & 4,17 & 4,00 & 4,83 & \textbf{4,10} \\ \hline
+\end{tabular}
+}
+\caption{Avaliação qualitativa dos modelos relacionadas a depuração e análise de erros}
+\label{tab:avaliacao_modelos_AE}
+\end{table}
+
+Em termos quantitativo, o desempenho relacionado ao tempo de resposta, o GPT-4.1-mini apresentou um tempo médio de 6,33 segundos, enquanto o Gemini 2.5 Flash registrou 12,87 segundos. Embora o Gemini seja aproximadamente duas vezes mais lento, a diferença não cresce na mesma proporção da complexidade típica de suas respostas. Isso sugere que, apesar de produzirem conteúdo mais extenso e elaborado, seus mecanismos internos de geração mantêm um nível razoável de eficiência.
+
+O mesmo fenômeno aparece no consumo de \textit{tokens}. O GPT-4.1-mini teve média de 458,83 tokens por resposta, enquanto o Gemini atingiu 2.564,17 \textit{tokens}. Apesar de o Gemini consumir mais de cinco vezes mais \textit{tokens}, essa diferença ainda é relativamente moderada quando comparada ao salto de detalhamento observado na análise qualitativa, onde o modelo frequentemente expande explicações, acrescenta exemplos e traz variações de uso. Isso demonstra que o acréscimo de profundidade não resulta necessariamente em explosões de custo operacional.  Nesse sentido, os valores médios gastos por esses \textit{tokens} são represntados na Tabela \ref{tab:avaliacao_custo_AE}.
+\begin{table}[H]
+\centering
+\resizebox{0.4\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Tempo [s]} & \textbf{Tokens} & \textbf{Custo} \\ \hline
+GPT-4.1-mini & 6,33 & 458,83 & R\$ 0,00147 \\ \hline
+Gemini-2.5 Flash & 12,87 & 2564,17 & R\$ 0,00820  \\ \hline
+\end{tabular}
+}
+\caption{Medidas quantitativas relacionadas a depuração e análise de erros}
+\label{tab:avaliacao_custo_AE}
+\end{table}
+
+Embora o Gemini apresente um custo consideravelmente maior por resposta, esse aumento financeiro acompanha de maneira proporcional o maior volume de \textit{tokens} que o modelo gera. Assim, apesar de produzir respostas mais extensas e detalhadas, o impacto financeiro não representa um salto tão extremo quanto seu nível de detalhamento poderia sugerir.
+
+\subsection{Compreensão de Código}
+No eixo de compreensão de código, os resultados revelam diferenças mais sutis, porém consistentes, entre os dois modelos. O GPT apresentou desempenho sólido e estável, especialmente em legibilidade e clareza estrutural, mantendo uma comunicação objetiva e direta. Seu estilo menos detalhado, embora por vezes limitado, contribui para respostas mais enxutas, fluídas e fáceis de ler, o que se refletiu em notas altas em categorias como legibilidade e eficácia em diversos \textit{prompts}.
+
+Por outro lado, o Gemini demonstrou maior proatividade ao interpretar e aprofundar-se nas explicações, oferecendo respostas mais ricas e tecnicamente densas. Esse comportamento garantiu notas superiores em precisão e completude na maioria dos casos. Entretanto, como visto na métrica anterior, esse detalhamento adicional também trouxe efeitos colaterais: em alguns \textit{prompts}, a legibilidade foi comprometida por excesso de informação ou hierarquia textual menos eficiente, isso fica evidente ao se analisar a media legibilidade (3,33) na Tabela \ref{tab:avaliacao_modelos_CdG} que, de forma análoga, teve a mesma nota da métrica anterior. 
+
+\begin{table}[H]
+\centering
+\resizebox{0.5\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Clareza} & \textbf{Legibilidade} & \textbf{Precisão} & \textbf{Eficácia} & \textbf{Completude} & \textbf{Média} \\
+\hline
+GPT & 4,33 & 4,33 & 4,17 & 4,17 & 4,33 & \textbf{4,27} \\ \hline
+Gemini & 4,33 & 3,33 & 5,00 & 4,17 & 5,00 & \textbf{4,37} \\ \hline
+\end{tabular}
+}
+\caption{Avaliação qualitativa dos modelos relacionadas a compreensão de código}
+\label{tab:avaliacao_modelos_CdG}
+\end{table}
+A distribuição das notas na Tabela \ref{tab:avaliacao_modelos_CdG}, evidencia que cada modelo apresenta pontos fortes específicos, mas nenhum deles se distancia de forma significativa no desempenho global. O GPT se mantém mais regular, com médias homogêneas em clareza, legibilidade e eficácia, entregando respostas objetivas e consistentes. Já o Gemini demonstra picos mais elevados em precisão e completude, refletindo seu estilo mais aprofundado e tecnicamente detalhado.
+
+Apesar dessas diferenças pontuais, o desempenho médio semelhante evidencia que ambos os modelos são igualmente competentes na tarefa de compreensão de código, cada um explorando estratégias distintas para alcançar resultados comparáveis, isso pode ser visto ao realizar a análise do \textit{prompt} 4 do código \ref{lst:prompt4CdG}, em que ambas as respostas foram muito boas com notas 4 ou acima.
+\begin{lstlisting}[caption=\footnotesize{\textit{Prompt} 4 referente a compreensão de código}, label={lst:prompt4CdG}, language=JavaScript]
+/*
+	Prompt: 
+Explique o que é o operador spread (...) e o que faz neste codigo e qual será o conteúdo final das variaveis merged.
+*/
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const merged = [...arr1, ...arr2];
+
+console.log(merged);
+\end{lstlisting}
+
+Consequentemente, a escolha entre eles dependerá mais do estilo de resposta desejado, como maior objetividade e fluidez, no caso do GPT, ou maior profundidade e detalhamento, no caso do Gemini, do que de uma vantagem clara em termos de qualidade geral na métrica analisada.
+
+Para os parâmetros quantitativos, em termos de tempo de resposta, o GPT-4.1-mini mantém sua característica de maior agilidade, com média de 9,73 segundos, enquanto o Gemini 2.5 Flash apresenta um tempo ligeiramente superior, atingindo 14,45 segundos. Essa variação está diretamente associada ao estilo mais expansivo e detalhado do Gemini, que naturalmente demanda mais processamento.
+
+No que diz respeito ao volume de \textit{tokens}, a diferença entre os modelos permanece consistente com seus padrões: o Gemini gera, em média, 3130,67 \textit{tokens}, valor substancialmente superior aos 694,17 \textit{tokens} produzidos pelo GPT. Essa disparidade reflete a preferência do Gemini por respostas mais longas e ricas em explicações, enquanto o GPT tende a priorizar concisão e objetividade. Dessa forma, ao se análisar a tab \ref{tab:avaliacao_custo_Cdg}, nota-se que o Gemini permanece financeiramente proporcional ao maior volume de \textit{tokens} gerados.
+
+\begin{table}[H]
+\centering
+\resizebox{0.4\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Tempo [s]} & \textbf{Tokens} & \textbf{Custo} \\ \hline
+GPT-4.1-mini & 9,73 & 694,17 & R\$ 0,00222 \\ \hline
+Gemini-2.5 Flash & 14,45 & 3130,67 & R\$ 0,04170  \\ \hline
+\end{tabular}
+}
+\caption{Medidas quantitativas relacionadas a compreensão de código}
+\label{tab:avaliacao_custo_Cdg}
+\end{table}
+
+Em síntese, as métricas quantitativas mostram que, embora o Gemini seja mais lento e mais custoso, esses aumentos acompanham diretamente seu nível superior de detalhamento textual. A diferença percentual entre os custos diminui quando observada em relação ao ganho de profundidade, evidenciando que ambos os modelos mantêm coerência interna entre estilo de resposta, tempo e custo operacional.
+
+\subsection{Visão geral dos resultados}
+Após a apresentação e discussão detalhada dos resultados qualitativos e quantitativos, torna-se necessário consolidar os principais achados de forma integrada. Esta subseção tem como objetivo oferecer uma visão geral comparativa entre os modelos avaliados, destacando não apenas seus desempenhos individuais em cada critério, mas também os padrões que emergem quando suas capacidades são observadas. Ao sintetizar os resultados, busca-se identificar tendências consistentes, pontos fortes e limitações de cada modelo, permitindo uma compreensão global de suas diferenças estruturais e de suas implicações práticas para o uso em contextos reais de desenvolvimento. Essa visão integrada servirá de base para a discussão final e para possíveis recomendações de uso.
+
+A consolidação dos resultados permite observar um panorama claro sobre o comportamento dos modelos avaliados. De modo geral, o ChatGPT (GPT-4.1-mini) demonstrou maior eficiência quantitativa, com tempos de resposta menores e custos substancialmente reduzidos em todas as métricas analisadas. Sua produção tende a ser mais sintética, objetiva e focada no essencial, o que se reflete diretamente no baixo volume de \textit{tokens} e, consequentemente, em um custo por resposta muito inferior ao do \textit{Gemini 2.5 Flash}. Já este último, embora mais lento e mais caro, mantém uma consistência notável no detalhamento e na amplitude das respostas, apresentando um estilo expansivo que explica a diferença numérica observada. Pode-se observar essas diferenças a partir da Tabela \ref{tab:comparacaoFinalQuantitativa}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Modelo} & \textbf{Tempo [s]} & \textbf{Tokens} & \textbf{Custo (R\$)} \\ \hline
+\centering GPT-4.1-mini & 8,87 & 620,50 & R\$ 0,00198 \\ \hline
+\centering Gemini 2.5 Flash & 17,24 & 3562,89 & R\$ 0,03869 \\ \hline
+\end{tabular}
+\caption{Médias de desempenho quantitativo entre os modelos}
+\label{tab:comparacaoFinalQuantitativa}
+\end{table}
+
+
+Do ponto de vista qualitativo, entretanto, a relação entre os modelos torna-se mais equilibrada. Na métrica de geração de código, o Gemini mostra clara superioridade ao apresentar respostas mais completas, variadas e tecnicamente aprofundadas, enquanto o ChatGPT se mantém mais direto, mas por vezes superficial. Na depuração e análise de erros, essa diferença diminui significativamente, com ambos apresentando desempenhos próximos, apesar de seguirem estratégias distintas: o ChatGPT tende a resolver o problema de forma rápida e pragmática, enquanto o Gemini frequentemente amplia o contexto e oferece abordagens alternativas. Já na compreensão de código, os resultados convergem ainda mais; ambos apresentam médias quase idênticas, revelando que, quando se trata de interpretar, explicar ou resumir trechos já existentes, os modelos operam em níveis muito semelhantes. Pode-se retificar esses resultados ao se observar o gráfico da figura \ref{fig:qualitativaTotal} em que as médias finais ficaram, na maioria dos casos, bem próximas.
+\begin{figure} [hbt!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figuras/qualitativaTotalSemTitulo.png}
+    \caption{Comparação das médias referentes as métricas quantitativas, em que o pentágono mais próximo do centro indica nota 1 e o mais distante nota 5}
+    \label{fig:qualitativaTotal}
+\end{figure}
+
+Esse equilíbrio entre as abordagens evidencia que as diferenças mais marcantes estão no volume e na forma, e não necessariamente na qualidade final entregue. O Gemini entrega mais detalhes e variações de uso, mas isso não implica, proporcionalmente, um ganho igualmente maior em qualidade, especialmente quando se considera a diferença de custo. O ChatGPT, por sua vez, apresenta um desempenho mais econômico e ágil, mantendo boa qualidade mesmo com respostas mais concisas. Assim, o conjunto dos resultados demonstra que a escolha entre os modelos depende menos de uma superioridade absoluta e mais da natureza do problema: tarefas que exigem profundidade e exploração tendem a favorecer o Gemini, enquanto demandas práticas, rápidas e recorrentes favorecem o ChatGPT.

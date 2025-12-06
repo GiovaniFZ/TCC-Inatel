@@ -28,7 +28,51 @@ headsep=0cm,
 \usepackage{comment}%ambiente para comentario
 \usepackage{relsize} %usado por comandos \mathlarger
 %\usepackage{mathptmx}
+\usepackage{array}
 
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, class, const, continue, debugger, default, delete,
+    do, else, export, extends, finally, for, function, if, import, in, instanceof,
+    let, new, return, super, switch, this, throw, try, typeof, var, void, while, with, yield},
+  keywordstyle=\color{blue},
+  ndkeywords={boolean, null, true, false},
+  ndkeywordstyle=\color{gray},
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{teal},
+  stringstyle=\color{orange},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{Python}{
+  keywords={def, return, if, elif, else, for, while, break, continue,
+    pass, import, from, as, class, try, except, raise, with, yield, lambda},
+  keywordstyle=\color{blue},
+  ndkeywords={},
+  ndkeywordstyle=\color{purple},
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]\#,
+  commentstyle=\color{gray}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  frame=single,
+  numbers=none,
+  captionpos=b,
+}
 %Referencia bibliografica
 \usepackage[
     style=numeric,
@@ -37,4 +81,6 @@ headsep=0cm,
 \addbibresource{referencia.bib}
 
 %Idioma. Use "english" para trabalhos em inglês
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
