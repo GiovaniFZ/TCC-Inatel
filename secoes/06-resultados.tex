@@ -1,15 +1,15 @@
 \section{Discussão e Resultados}
 Esta seção apresenta e analisa os resultados obtidos a partir da aplicação dos procedimentos descritos na metodologia. As avaliações foram conduzidas de acordo com os três critérios previamente definidos: geração de código, depuração e análise de erros e compreensão de código, utilizando as métricas qualitativas e quantitativas estabelecidas.
-Para fins de concisão e clareza na exposição, são apresentados neste artigo apenas os \textit{prompts} e resultados de maior relevância, ou seja, aqueles que melhor ilustram o comportamento e as diferenças de desempenho observadas entre os modelos analisados. Novamente ressalta-se que a versão completa do conjunto de testes, incluindo todos os \textit{prompts} e respostas, encontra-se disponível no repositório oficial do projeto, hospedado no GitHub \cite{githubTCC}, para fins de transparência e reprodutibilidade da pesquisa.
+Para fins de concisão e clareza na exposição, são apresentados neste artigo apenas os \textit{prompts} e resultados de maior relevância, ou seja, aqueles que melhor ilustram o comportamento e as diferenças de desempenho observadas entre os modelos analisados. Novamente ressalta-se que a versão completa do conjunto de testes, incluindo todos os \textit{prompts} e respostas, encontra-se disponível no repositório oficial do projeto, hospedado no GitHub para fins de transparência e reprodutibilidade da pesquisa.
 
 \subsection{Geração de Código}
 No critério de geração de código, observou-se que ambos os modelos apresentaram desempenhos satisfatórios, ainda que com abordagens distintas quanto ao nível de detalhamento, clareza e eficiência das respostas. O GPT destacou-se pela simplicidade e objetividade na apresentação das soluções, oferecendo explicações diretas, bem estruturadas e de fácil leitura. Seu código apresentou boa organização e nomenclatura adequada de variáveis, o que favoreceu a legibilidade. No entanto, em alguns casos, demonstrou ausência de elementos técnicos complementares, como blocos de tratamento de exceção, o que limitou sua eficácia e completude em determinados contextos.
 
 Por outro lado, o Gemini adotou uma abordagem mais robusta e descritiva, frequentemente adicionando funcionalidades complementares e detalhes técnicos relevantes às soluções propostas. Essa característica contribuiu para uma maior precisão e completude, especialmente em problemas que exigiam maior profundidade técnica. Contudo, em alguns cenários, o excesso de comentários e exemplos inseridos no próprio código compromete a clareza e a legibilidade das respostas, tornando-as mais densas e, por vezes, redundantes.
 
-A diferença entre os estilos de geração de código torna-se ainda mais evidente quando observados os resultados de \textit{prompts} específicos. No \textit{Prompt} 3: \textit{“Mostre como configurar a conexão com um banco de dados usando Sequelize em JavaScript”}, o \textit{GPT} demonstrou desempenho superior, obtendo notas 5, 5, 4, 4 e 4 nos critérios de clareza, legibilidade, precisão, eficácia e completude, respectivamente. Sua resposta foi direta, bem estruturada e tecnicamente correta, refletindo a eficiência do modelo em tarefas de escopo mais objetivo e linear. O Gemini, por outro lado, apresentou uma resposta excessivamente detalhada e confusa, com notas 2, 2, 5, 4 e 5, o que reforça sua tendência à complexidade desnecessária em contextos simples.
+A diferença entre os estilos de geração de código torna-se ainda mais evidente quando observados os resultados de \textit{prompts} específicos. No \textit{Prompt} 3: \textit{"Mostre como configurar a conexão com um banco de dados usando Sequelize em JavaScript"}, o \textit{GPT} demonstrou desempenho superior, obtendo notas 5, 5, 4, 4 e 4 nos critérios de clareza, legibilidade, precisão, eficácia e completude, respectivamente. Sua resposta foi direta, bem estruturada e tecnicamente correta, refletindo a eficiência do modelo em tarefas de escopo mais objetivo e linear. O Gemini, por outro lado, apresentou uma resposta excessivamente detalhada e confusa, com notas 2, 2, 5, 4 e 5, o que reforça sua tendência à complexidade desnecessária em contextos simples.
 
-Entretanto, nos \textit{Prompts} 5 e 6, que envolviam tarefas substancialmente mais complexas, respectivamente: \textit{ “Crie um middleware de autenticação JWT completo em Node.js (gerar token, verificar e renovar)”} e \textit{“Crie uma API REST em Node.js com Express que permita cadastrar, listar e deletar produtos, utilizando Sequelize e MySQL”}, o cenário se inverteu de forma marcante. O Gemini obteve nota máxima (5) em todos os critérios nos dois casos, demonstrando profunda compreensão do problema, implementação completa e atenção a detalhes técnicos, como verificação de erros, boas práticas de segurança e estrutura modular. Já o GPT apresentou desempenho significativamente inferior (nenhum critério passsou acima da nota 3), produzindo respostas incompletas, com falhas técnicas e ausência de mecanismos essenciais para o funcionamento robusto do código.
+Entretanto, nos \textit{Prompts} 5 e 6, que envolviam tarefas substancialmente mais complexas, respectivamente: \textit{ "Crie um middleware de autenticação JWT completo em Node.js (gerar token, verificar e renovar)"} e \textit{"Crie uma API REST em Node.js com Express que permita cadastrar, listar e deletar produtos, utilizando Sequelize e MySQL"}, o cenário se inverteu de forma marcante. O Gemini obteve nota máxima (5) em todos os critérios nos dois casos, demonstrando profunda compreensão do problema, implementação completa e atenção a detalhes técnicos, como verificação de erros, boas práticas de segurança e estrutura modular. Já o GPT apresentou desempenho significativamente inferior (nenhum critério passsou acima da nota 3), produzindo respostas incompletas, com falhas técnicas e ausência de mecanismos essenciais para o funcionamento robusto do código.
 
 De modo geral, a análise evidencia que o GPT tende a priorizar a objetividade, entregando respostas rápidas e práticas, ainda que menos elaboradas, enquanto o Gemini se sobressai pela riqueza de detalhes e pela amplitude das soluções, embora, em certos casos com perda de fluidez na leitura. Afim de realizar essa comprovação pode-se, também, avaliar a Tabela \ref{tab:avaliacao_modelos_CG} que ilustra as médias dos resultados obtidos pelas métricas de avaliação, onde o Gemini obteve um resultado em legibilidade (3,33) muito inferior as outras categorias, enquanto o GPT manteve um equilíbrio médio entre 3 e 3,5 em todas elas.
 
@@ -52,7 +52,7 @@ Para a depuração e análise de erros, foram observadas diferenças significati
 \begin{lstlisting}[caption=\footnotesize{\textit{Prompt} 4 referente a depuração e análise de erros}, label={lst:prompt4AE}, language=JavaScript]
 /*
     Prompt: 
-Estou recebendo “UnhandledPromiseRejectionWarning” no Node.js ao usar axios. Como corrigir?
+Estou recebendo "UnhandledPromiseRejectionWarning" no Node.js ao usar axios. Como corrigir?
 */
 
 const axios = require("axios");
@@ -69,7 +69,7 @@ Por outro lado, o Gemini  demonstrou profundidade técnica e detalhamento elevad
 
 \begin{lstlisting}[caption=\footnotesize{\textit{Prompt} 1 referente a depuração e análise de erros}, label={lst:prompt1AE}, language=Python]
     # Prompt:
-# Meu codigo em Python retorna “TypeError: 'int' object is not iterable”. O que pode estar errado?
+# Meu codigo em Python retorna "TypeError: 'int' object is not iterable". O que pode estar errado?
 
 total = 0
 for num in 10:
@@ -138,7 +138,7 @@ Apesar dessas diferenças pontuais, o desempenho médio semelhante evidencia que
 \begin{lstlisting}[caption=\footnotesize{\textit{Prompt} 4 referente a compreensão de código}, label={lst:prompt4CdG}, language=JavaScript]
 /*
 	Prompt: 
-Explique o que é o operador spread (...) e o que faz neste codigo e qual será o conteúdo final das variaveis merged.
+Explique o operador spread (...), o que faz neste codigo e qual sera o conteudo final das variaveis merged.
 */
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
